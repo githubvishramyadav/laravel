@@ -21,17 +21,19 @@
         @endphp
     </pre> --}}
     <div class="container">
-        <h1 class="text-center"> Registration </h1>
-        <div class="form-group">
-            <label for="">Name</label>
-            <input type="text" name="name" id="" class="form-control" value="{{old('name')}}">
-                <span class="text-danger">
-                    @error('name')
-                        {{$message}}
-                    @enderror
-                </span>
-        </div>
-        <div class="form-group">
+
+        <x-input type="text" name="name" label="Please Enter your name"/>
+        <x-input type="emai" name="email" label="Please Enter your email"/>
+        <x-input type="password" name="password" label="Please Enter your password"/>
+        <x-input type="password" name="password_confirmation" label="Please Enter your confirm password"/>
+
+
+
+
+
+
+        
+        {{-- <div class="form-group">
             <label for="">Email</label>
             <input type="text" name="email" id="" class="form-control" value="{{old('email')}}">
                 <span class="text-danger">
@@ -39,8 +41,8 @@
                         {{$message}}
                     @enderror
                 </span>
-        </div>
-        <div class="form-group">
+        </div> --}}
+        {{-- <div class="form-group">
             <label for="">Password</label>
             <input type="password" name="password" id="" class="form-control">
                 <span class="text-danger">
@@ -57,7 +59,7 @@
                         {{$message}}
                     @enderror
                 </span>
-        </div>
+        </div> --}}
         <button class="btn btn-primary">Submit</button>
     </div>
 </form>
