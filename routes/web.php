@@ -5,6 +5,7 @@ use App\Http\Controllers\DemoController;
 use App\Http\Controllers\SingleActionController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\RegistrationController;
+use App\Models\Customer;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -100,4 +101,10 @@ use App\Http\Controllers\RegistrationController;
 // Registration
 Route::get('/register', [RegistrationController::class, 'index']);
 Route::post('/register', [RegistrationController::class, 'register']);
+
+Route::get('/customer', function(){
+    $customer = Customer::all();
+    echo "<pre>";
+    print_r($customer->toArray());
+});
 
