@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DemoController;
 use App\Http\Controllers\SingleActionController;
 use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\RegistrationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -87,14 +88,16 @@ use App\Http\Controllers\PhotoController;
 // });
 
 // Basic Controller 
-Route::get('/', [DemoController::class, 'index']);
-// Route::get('/about',[DemoController::class, 'about']);
-Route::get('/about', 'App\Http\Controllers\DemoController@about');
+// Route::get('/', [DemoController::class, 'index']);
+// // Route::get('/about',[DemoController::class, 'about']);
+// Route::get('/about', 'App\Http\Controllers\DemoController@about');
 
 
-Route::get('/courses', SingleActionController::class);
+// Route::get('/courses', SingleActionController::class);
 
-Route::resource('photo', PhotoController::class);
+// Route::resource('photo', PhotoController::class);
 
-
+// Registration
+Route::get('/register', [RegistrationController::class, 'index']);
+Route::post('register', [RegistrationController::class, 'register']);
 
