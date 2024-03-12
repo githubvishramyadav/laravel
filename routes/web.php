@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\DemoController;
+use App\Http\Controllers\SingleActionController;
+use App\Http\Controllers\PhotoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,22 +15,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/d', function () {
-    return view('welcome');
-});
+// Route::get('/d', function () {
+//     return view('welcome');
+// });
 
-Route::get('/demo', function(){
-    echo "Hello world";
-});
+// Route::get('/demo', function(){
+//     echo "Hello world";
+// });
 
-Route::post('/test', function(){
-    echo "Testing an application";
-});
+// Route::post('/test', function(){
+//     echo "Testing an application";
+// });
 
-Route::any('/test', function()
-{
-    echo "Testing Application";
-});
+// Route::any('/test', function()
+// {
+//     echo "Testing Application";
+// });
 
 
 // Route::put('user/{id}', function(){
@@ -41,9 +43,9 @@ Route::any('/test', function()
 //     echo
 // });
 
-Route::get('/demopage', function(){
-    return view('demo');
-});
+// Route::get('/demopage', function(){
+//     return view('demo');
+// });
 
 
 // pass user name in url
@@ -77,9 +79,22 @@ Route::get('/demopage', function(){
 //     return view('home')->with($data);
 // });
 
-Route::get('/', function () {
-    return view('home1');
-});
-Route::get('/about', function () {
-    return view('about');
-});
+// Route::get('/', function () {
+//     return view('home1');
+// });
+// Route::get('/about', function () {
+//     return view('about');
+// });
+
+// Basic Controller 
+Route::get('/', [DemoController::class, 'index']);
+// Route::get('/about',[DemoController::class, 'about']);
+Route::get('/about', 'App\Http\Controllers\DemoController@about');
+
+
+Route::get('/courses', SingleActionController::class);
+
+Route::resource('photo', PhotoController::class);
+
+
+
