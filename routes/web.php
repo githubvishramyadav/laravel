@@ -99,5 +99,5 @@ use App\Http\Controllers\RegistrationController;
 
 // Registration
 Route::get('/register', [RegistrationController::class, 'index']);
-Route::post('register', [RegistrationController::class, 'register']);
+Route::post('/register', [RegistrationController::class, 'register']);
 
