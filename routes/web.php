@@ -5,7 +5,8 @@ use App\Http\Controllers\DemoController;
 use App\Http\Controllers\SingleActionController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\RegistrationController;
-use App\Models\Customer;
+use App\Http\Controllers\CustomerController;
+// use App\Http\Controllres\CustomerController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -99,12 +100,18 @@ use App\Models\Customer;
 // Route::resource('photo', PhotoController::class);
 
 // Registration
-Route::get('/register', [RegistrationController::class, 'index']);
-Route::post('/register', [RegistrationController::class, 'register']);
+// Route::get('/register', [RegistrationController::class, 'index']);
+// Route::post('/register', [RegistrationController::class, 'register']);
 
-Route::get('/customer', function(){
-    $customer = Customer::all();
-    echo "<pre>";
-    print_r($customer->toArray());
-});
+// Route::get('/customer', function(){
+//     $customer = Customer::all();
+//     echo "<pre>";
+//     print_r($customer->toArray());
+// });
+
+
+
+// Insert Query in database
+Route::get('/customer', [CustomerController::class, 'index']);
+Route::post('/customer', [CustomerController::class, 'store']);
 
