@@ -8,14 +8,19 @@ use App\Models\Customer;
 
 class CustomerController extends Controller
 {
-    public function index(){
+    // public function index(){
+    //     return view('customer');
+    // }
+
+    public function create(){
         return view('customer');
     }
 
     public function store(Request $request){
-       echo "<pre>";
-       print_r($request->all());
-        // Insert Query
+    //    echo "<pre>";
+    //    print_r($request->all());
+
+    //    Insert Query
        $customer = new Customer;
        $customer->name = $request['name'];
        $customer->email = $request['email'];
@@ -26,5 +31,20 @@ class CustomerController extends Controller
        $customer->dob = $request['dob'];
        $customer->password = md5($request['password']);
        $customer->save();
+       //---------
+
+       return redirect('/customer/view');
+    }
+
+    public function view(){
+        $customer = Customer::all();
+        // echo "<pre>";
+        // // print_r($customers->toArray());
+        // print_r($customers);
+        // echo "</pre>";
+        // die;
+
+        $data = compact('customer');
+        return view('customer-view')->with($data);
     }
 }

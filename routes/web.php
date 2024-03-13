@@ -6,6 +6,7 @@ use App\Http\Controllers\SingleActionController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\CustomerController;
+use App\Models\Customer;
 // use App\Http\Controllres\CustomerController;
 /*
 |--------------------------------------------------------------------------
@@ -112,6 +113,9 @@ use App\Http\Controllers\CustomerController;
 
 
 // Insert Query in database
-Route::get('/customer', [CustomerController::class, 'index']);
-Route::post('/customer', [CustomerController::class, 'store']);
 
+Route::get('/customer', [CustomerController::class, 'index']);
+Route::post('/customer', [CustomerController::class, 'store']); // Store user in database
+
+Route::get('/customer/create', [CustomerController::class, 'create']); // create user
+Route::get('/customer/view', [CustomerController::class, 'view']); // view the table on page
