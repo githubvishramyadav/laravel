@@ -33,7 +33,7 @@ class CustomerController extends Controller
        $customer->save();
        //---------
 
-       return redirect('/customer/view');
+       return redirect('/customer');
     }
 
     public function view(){

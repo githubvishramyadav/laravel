@@ -114,8 +114,20 @@ use App\Models\Customer;
 
 // Insert Query in database
 
-Route::get('/customer', [CustomerController::class, 'index']);
-Route::post('/customer', [CustomerController::class, 'store']); // Store user in database
+// Route::get('/customer', [CustomerController::class, 'index']);
+// Route::post('/customer', [CustomerController::class, 'store']); // Store user in database
 
-Route::get('/customer/create', [CustomerController::class, 'create']); // create user
-Route::get('/customer/view', [CustomerController::class, 'view']); // view the table on page
+// Route::get('/customer/create', [CustomerController::class, 'create']); // create user
+// Route::get('/customer/view', [CustomerController::class, 'view']); // view the table on page
+
+
+// Roting through button
+Route::get('/', function(){
+    return view('index');
+});
+
+Route::get('/register', [RegistrationController::class, 'index']);
+Route::post('/register', [RegistrationController::class, 'register']);
+Route::get('/customer/create', [CustomerController::class, 'create'])->name('customer.create'); // create user
+Route::get('/customer', [CustomerController::class, 'view']); // view the table on page
+Route::post('/customer', [CustomerController::class, 'store']); // Store user in database
