@@ -47,4 +47,33 @@ class CustomerController extends Controller
         $data = compact('customer');
         return view('customer-view')->with($data);
     }
+
+    // for testing delete query
+
+    // public function delete($id){
+    //     $customer= Customer::find($id);
+    //     echo "<pre>";
+    //     print_r($customer);
+    // }
+
+
+    // through url() method
+
+    // public function delete($id){
+
+    //     Customer::find($id)->delete();
+    //     return redirect()->back();       
+    // }
+
+    
+    // Through route method
+
+    public function delete($id)
+    {
+        $customer = Customer::find($id);
+        if(!is_null($customer)){
+            $customer->delete;
+        }
+        return redirect('customer');       
+    }
 }
