@@ -51,6 +51,7 @@
                     <th>Email</th>
                     <th>Gender</th>
                     <th>DoB</th>
+                    <th>Address</th>
                     <th>State</th>
                     <th>Country</th>
                     <th>Status</th>
@@ -72,6 +73,7 @@
                             @endif
                         </td>
                         <td>{{ $customer->dob }}</td>
+                        <td>{{ $customer->address }}</td>
                         <td>{{ $customer->state }}</td>
                         <td>{{ $customer->country }}</td>
                         <td>
@@ -88,12 +90,13 @@
                             {{-- <a href="{{ url('/customer/delete/') }}/{{ $customer->customer_id }}">
                                 <button class="btn btn-danger">Delete</button>
                             </a> --}}
-                            
+
                             {{-- Through route method --}}
                             <a href="{{route('customer.delete', ['id' => $customer->customer_id])}}">
                                 <button class="btn btn-danger">Delete</button>
                             </a>
-                            <button class="btn btn-primary">Edit</button>
+                            <a href="{{route('customer.edit', ['id' => $customer->customer_id])}}">
+                                <button class="btn btn-primary">Edit</button></a>
 
                         </td>
                     </tr>

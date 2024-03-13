@@ -13,7 +13,10 @@ class CustomerController extends Controller
     // }
 
     public function create(){
-        return view('customer');
+        $url = url('/customer');
+        $title = "Customer Registraion";
+        $data = compact('url', 'title');
+        return view('customer')->with($data);
     }
 
     public function store(Request $request){
@@ -65,7 +68,7 @@ class CustomerController extends Controller
     //     return redirect()->back();       
     // }
 
-    
+
     // Through route method
 
     public function delete($id)
@@ -75,5 +78,36 @@ class CustomerController extends Controller
             $customer->delete;
         }
         return redirect('customer');       
+    }
+
+    public function edit($id)
+    {
+        $customer = Customer::find($id);
+        if(is_null($customer)){
+            // not found
+            return redirect('customer');
+        }
+        else{
+            // found
+            $title = "Update Customer";
+            $url = url('/customer/update') . "/" . $id;
+            $data = compact('customer', 'url', 'title');
+            return view('customer')->with($data);
+        }
+    }
+
+    public function update($id, Request $request)
+    {
+        $customer = Customer::find($id);
+        $customer->name = $request['name'];
+        $customer->email = $request['email'];
+        $customer->gender = $request['gender'];
+        $customer->address = $request['address'];
+        $customer->state = $request['state'];
+        $customer->country = $request['country'];
+        $customer->dob = $request['dob'];
+        $customer->save();
+
+        return redirect('/customer');
     }
 }

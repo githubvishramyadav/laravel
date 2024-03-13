@@ -130,5 +130,7 @@ Route::get('/register', [RegistrationController::class, 'index']);
 Route::post('/register', [RegistrationController::class, 'register']);
 Route::get('/customer/create', [CustomerController::class, 'create'])->name('customer.create'); // create user
 Route::get('/customer/delete/{id}', [CustomerController::class, 'delete'])->name('customer.delete');
+Route::get('/customer/edit/{id}', [CustomerController::class, 'edit'])->name('customer.edit');
+Route::post('/customer/update/{id}', [CustomerController::class, 'update'])->name('customer.update');
 Route::get('/customer', [CustomerController::class, 'view']); // view the table on page
 Route::post('/customer', [CustomerController::class, 'store']); // Store user in database
